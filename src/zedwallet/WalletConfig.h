@@ -10,7 +10,7 @@
 namespace WalletConfig
 {
     /* The prefix your coins address starts with */
-    const std::string addressPrefix = "aLs";
+    const std::string addressPrefix = "aL";
 
     /* Your coins 'Ticker', e.g. Monero = XMR, Bitcoin = BTC */
     const std::string ticker = "ALSF";
@@ -44,7 +44,7 @@ namespace WalletConfig
 
 
     /* The length of a standard address for your coin */
-    const long unsigned int standardAddressLength = 99;
+    const long unsigned int standardAddressLength = 97;
 
     /* The length of an integrated address for your coin */
     const long unsigned int integratedAddressLength = 236;
