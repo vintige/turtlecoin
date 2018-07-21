@@ -206,8 +206,8 @@ const static boost::uuids::uuid CRYPTONOTE_NETWORK =
 };
 
 const char* const SEED_NODES[] = {
-  "http://45.32.186.61:14544", //vintige
-"http://95.179.131.67:14545", //vintige
-"http://95.179.138.105:14544", //vintige
+  "45.32.186.61:14544", //vintige
+"95.179.131.67:14545", //vintige
+"95.179.138.105:14544", //vintige
   };
 } // CryptoNote
