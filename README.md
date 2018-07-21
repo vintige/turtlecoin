@@ -1,7 +1,17 @@
-![image](https://user-images.githubusercontent.com/34389545/35821974-62e0e25c-0a70-11e8-87dd-2cfffeb6ed47.png)
+AllSafe is an ASIC resistant cryptocurrency designed for mining and perfect for rewarding your workers, co-workers, and colleagues
 
-[![Build Status](https://travis-ci.org/turtlecoin/turtlecoin.svg?branch=master)](https://travis-ci.org/turtlecoin/turtlecoin)
-[![Build status](https://ci.appveyor.com/api/projects/status/an6je6l48eawteyg?svg=true)](https://ci.appveyor.com/project/RocksteadyTC/turtlecoin)
+Algorithm: CryptoNightLite V1
+Max. supply: 100,000,000.0
+CryptoNote name: allsafe
+Decimal points: 8
+Block time: 120
+Ticker: ALSF
+Emission speed factor: 18????
+P2P port: 14544
+RPC port: 14545
+
+
+(https://ci.appveyor.com/project/RocksteadyTC/turtlecoin)
 ### How To Compile
 
 On Linux or Mac on a non standard architecture, and can't get GNU Readline installed?
