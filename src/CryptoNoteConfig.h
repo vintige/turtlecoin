@@ -40,7 +40,7 @@ const uint64_t LWMA_2_DIFFICULTY_BLOCK_INDEX_V2              = 1;
 const uint64_t DIFFICULTY_WINDOW_V3                          = 60;
 const uint64_t DIFFICULTY_BLOCKS_COUNT_V3                    = DIFFICULTY_WINDOW_V3 + 1;
 
-const unsigned EMISSION_SPEED_FACTOR                         = 19;
+const unsigned EMISSION_SPEED_FACTOR                         = 21;
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 /* Premine amount */
@@ -77,9 +77,9 @@ const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
 const uint64_t MINIMUM_FEE                                   = UINT64_C(100000000);
 
-const uint64_t MINIMUM_MIXIN_V1                              = 3;
+const uint64_t MINIMUM_MIXIN_V1                              = 1;
 const uint64_t MAXIMUM_MIXIN_V1                              = 9;
-const uint64_t MINIMUM_MIXIN_V2                              = 3;
+const uint64_t MINIMUM_MIXIN_V2                              = 1;
 const uint64_t MAXIMUM_MIXIN_V2                              = 9;
 
 const uint32_t MIXIN_LIMITS_V1_HEIGHT                        = 0;
