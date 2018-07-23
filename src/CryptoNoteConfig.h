@@ -77,9 +77,9 @@ const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
 const uint64_t MINIMUM_FEE                                   = UINT64_C(100000000);
 
-const uint64_t MINIMUM_MIXIN_V1                              = 3;
+const uint64_t MINIMUM_MIXIN_V1                              = 0;
 const uint64_t MAXIMUM_MIXIN_V1                              = 9;
-const uint64_t MINIMUM_MIXIN_V2                              = 3;
+const uint64_t MINIMUM_MIXIN_V2                              = 0;
 const uint64_t MAXIMUM_MIXIN_V2                              = 9;
 
 const uint32_t MIXIN_LIMITS_V1_HEIGHT                        = 0;
@@ -202,7 +202,7 @@ const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "";
 
 const static boost::uuids::uuid CRYPTONOTE_NETWORK =
 {
-    {  0xb5, 0x0c, 0x4a, 0x6c, 0xcf, 0x52, 0x57, 0x41, 0x65, 0xf9, 0x92, 0xa4, 0xb6, 0xc1, 0x43, 0xe9  }
+    {  0xb5, 0x0c, 0x4a, 0x6c, 0xcf, 0x52, 0x57, 0x41, 0x65, 0xf9, 0x92, 0xa4, 0xb6, 0xc2, 0x43, 0xe9  }
 };
 
 const char* const SEED_NODES[] = {
