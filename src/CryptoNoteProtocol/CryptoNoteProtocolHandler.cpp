@@ -592,10 +592,13 @@ bool CryptoNoteProtocolHandler::on_connection_synchronized() {
       logger(INFO, WHITE) << " If you need more assistance, visit the #HELP channel in the xaria Discord Chat - http://xaria.xyz" << ENDL ;
       logger(INFO, BRIGHT_MAGENTA) << "===================================================" << ENDL << ENDL ;
 
-      logger(INFO, BRIGHT_GREEN) <<
+      logger(INFO, GREEN) <<
 
       #ifdef _WIN32
-      "WELCOME TO XARIA" << ENDL;
+      "\n WELCOME TO XARIA\n" << ENDL;
+      #else
+      "\n                                                                            \n"
+        "WELCOME TO XARIA\n" << ENDL;
       #endif
 
     m_observerManager.notify(&ICryptoNoteProtocolObserver::blockchainSynchronized, m_core.getTopBlockIndex());
