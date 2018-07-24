@@ -1,12 +1,15 @@
 AllSafe is an ASIC resistant cryptocurrency designed for mining and perfect for rewarding your workers, co-workers, and colleagues
 
+
+Edit
+
 - Algorithm: CryptoNightLite V1
 - Max. supply: 100,000,000.0
 - CryptoNote name: allsafe
 - Decimal points: 8
 - Block time: 120
 - Ticker: ALSF
-- Emission speed factor: 18????
+- Emission speed factor: 20
 - P2P port: 14544
 - RPC port: 14545
 
