@@ -37,7 +37,7 @@ endif()
 # This appears to be an IDE thing, to group files together.
 # https://cmake.org/cmake/help/v3.0/command/source_group.html
 # Probably not what you need to be looking at if something isn't building
-source_group("" FILES $${Common} ${ConnectivityTool} ${Crypto} ${CryptoNoteCore} ${CryptoNoteProtocol} ${TurtleCoind} ${JsonRpcServer} ${Http} ${Logging} ${miner} ${Mnemonics} ${NodeRpcProxy} ${poolwallet} ${P2p} ${Rpc} ${Serialization} ${System} ${Transfers} ${Wallet} ${WalletLegacy} ${zedwallet})
+source_group("" FILES $${Common} ${ConnectivityTool} ${Crypto} ${CryptoNoteCore} ${CryptoNoteProtocol} ${xariad} ${JsonRpcServer} ${Http} ${Logging} ${miner} ${Mnemonics} ${NodeRpcProxy} ${poolwallet} ${P2p} ${Rpc} ${Serialization} ${System} ${Transfers} ${Wallet} ${WalletLegacy} ${zedwallet})
 
 add_library(BlockchainExplorer ${BlockchainExplorer})
 add_library(Common ${Common})

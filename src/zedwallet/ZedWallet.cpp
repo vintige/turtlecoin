@@ -1,4 +1,5 @@
 // Copyright (c) 2018, The TurtleCoin Developers
+// Copyright (c) 2018, The Xaria Developers
 // 
 // Please see the included LICENSE file for more information.
 
@@ -502,7 +503,7 @@ bool shutdown(CryptoNote::WalletGreen &wallet, CryptoNote::INode &node,
 {
     if (alreadyShuttingDown)
     {
-        std::cout << "Patience little turtle, we're already shutting down!" 
+        std::cout << "Patience little one, we're already shutting down!" 
                   << std::endl;
 
         return false;
