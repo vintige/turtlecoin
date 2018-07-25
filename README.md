@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/37904871/43225562-562f4686-9051-11e8-8e6c-5b150d3fb78b.png)
+![image](https://user-images.githubusercontent.com/37904871/43226127-d8a101b2-9052-11e8-8e95-14f011034463.png)
 
 [![Build Status](https://travis-ci.org/turtlecoin/turtlecoin.svg?branch=master)](https://travis-ci.org/turtlecoin/turtlecoin)
 [![Build status](https://ci.appveyor.com/api/projects/status/an6je6l48eawteyg?svg=true)](https://ci.appveyor.com/project/RocksteadyTC/turtlecoin)
