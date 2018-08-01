@@ -208,7 +208,7 @@ const static boost::uuids::uuid CRYPTONOTE_NETWORK =
 
 const char* const SEED_NODES[] = {
   "95.179.130.121:11997", //daaaam
-  "45.77.61.186:11997", //paris
-  "95.179.164.207:11897" //frankfurt
+  "82.40.42.232:11997", //london
+  "95.179.164.207:11997" //frankfurt
 };
 } // CryptoNote
