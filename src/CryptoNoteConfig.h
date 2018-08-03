@@ -80,8 +80,8 @@ const uint64_t MINIMUM_FEE                                   = UINT64_C(0);
 
 const uint64_t MINIMUM_MIXIN_V1                              = 0;
 const uint64_t MAXIMUM_MIXIN_V1                              = 3;
-const uint64_t MINIMUM_MIXIN_V2                              = 3;
-const uint64_t MAXIMUM_MIXIN_V2                              = 3;
+const uint64_t MINIMUM_MIXIN_V2                              = 2;
+const uint64_t MAXIMUM_MIXIN_V2                              = 7;
 
 const uint32_t MIXIN_LIMITS_V1_HEIGHT                        = 0;
 const uint32_t MIXIN_LIMITS_V2_HEIGHT                        = 1;
