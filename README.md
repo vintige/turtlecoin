@@ -12,7 +12,7 @@ Disable it with `cmake .. -DFORCE_READLINE=FALSE`
 
 There is a bash installation script for Ubuntu 16.04+ and MacOS 10.10+ which can be used to checkout and build the project from source:
 
-`$ curl -sL "https://raw.githubusercontent.com/z3ro-cool/xaria/master/scripts/multi_installer.sh" | bash `
+`$ curl -sL "https://raw.githubusercontent.com/xaria-coin/xaria/master/scripts/multi_installer.sh" | bash `
 
 On Ubuntu you will be asked for sudo rights to install software. The binaries will be in `./src` after compilation is complete.
 
@@ -37,7 +37,7 @@ sudo apt-get install librocksdb-dev
 
 ##### Building
 
-- `git clone -b master https://github.com/z3ro-cool/xaria`
+- `git clone -b master https://github.com/xaria-coin/xaria`
 - `cd xaria`
 - `mkdir build && cd $_`
 - `cmake ..`
@@ -54,7 +54,7 @@ sudo apt-get install librocksdb-dev
 
 ##### Building
 
-- `git clone -b master https://github.com/z3ro-cool/xaria`
+- `git clone -b master https://github.com/xaria-coin/xaria`
 - `cd xaria`
 - `mkdir build && cd $_`
 - `cmake ..` or `cmake -DBOOST_ROOT=<path_to_boost_install> ..` when building
