@@ -79,7 +79,7 @@ const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 2;
 const uint64_t MINIMUM_FEE                                   = UINT64_C(0);
 
 const uint64_t MINIMUM_MIXIN_V1                              = 0;
-const uint64_t MAXIMUM_MIXIN_V1                              = 3;
+const uint64_t MAXIMUM_MIXIN_V1                              = 5;
 const uint64_t MINIMUM_MIXIN_V2                              = 1;
 const uint64_t MAXIMUM_MIXIN_V2                              = 7;
 
