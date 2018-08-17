@@ -6,13 +6,13 @@
 
 On Linux or Mac on a non standard architecture, and can't get GNU Readline installed?
 
-Disable it with `cmake .. -DFORCE_READLINE=FALSE`
+Disable it with `cmake .. -DENABLE_READLINE=FALSE`
 
 #### Ubuntu 16.04+ and MacOS 10.10+
 
 There is a bash installation script for Ubuntu 16.04+ and MacOS 10.10+ which can be used to checkout and build the project from source:
 
-`$ curl -sL "https://raw.githubusercontent.com/xaria-coin/xaria/master/scripts/multi_installer.sh" | bash `
+`$ curl -sL "https://raw.githubusercontent.com/turtlecoin/turtlecoin/master/scripts/multi_installer.sh" | bash `
 
 On Ubuntu you will be asked for sudo rights to install software. The binaries will be in `./src` after compilation is complete.
 
@@ -27,13 +27,7 @@ If the script doesn't work for you:
 ##### Prerequisites
 
 - You will need the following packages: boost (1.55 or higher), rocksdb, cmake, git, gcc (4.9 or higher), g++ (4.9 or higher), make, GNU readline, and python. Most of these should already be installed on your system.
-- For example on Ubuntu: `sudo apt-get install -y build-essential python-dev gcc g++ git cmake libboost-all-dev librocksdb-dev libreadline-dev`
-- If you are using Ubuntu and your version of Ubuntu doesn't have librocksdb-dev, you can get it from a ppa instead:
-```
-sudo add-apt-repository ppa:ethcore/ethcore -y
-sudo apt-get update
-sudo apt-get install librocksdb-dev
-```
+- For example on Ubuntu: `sudo apt-get install -y build-essential python-dev gcc g++ git cmake libboost-all-dev libreadline-dev`
 
 ##### Building
 
@@ -41,7 +35,7 @@ sudo apt-get install librocksdb-dev
 - `cd xaria`
 - `mkdir build && cd $_`
 - `cmake ..`
-- `make`
+- `make
 
 #### Apple
 
@@ -55,7 +49,7 @@ sudo apt-get install librocksdb-dev
 ##### Building
 
 - `git clone -b master https://github.com/xaria-coin/xaria`
-- `cd xaria`
+- `cd xaria``
 - `mkdir build && cd $_`
 - `cmake ..` or `cmake -DBOOST_ROOT=<path_to_boost_install> ..` when building
   from a specific boost install. If you used brew to install boost, your path is most likely `/usr/local/include/boost.`
@@ -63,7 +57,7 @@ sudo apt-get install librocksdb-dev
 
 The binaries will be in `./src` after compilation is complete.
 
-Run `./src/xariad` to connect to the network and let it sync (it may take a while).
+Run `./src/Xariad` to connect to the network and let it sync (it may take a while).
 
 #### Windows 10
 
@@ -98,4 +92,5 @@ Hi Xaria contributor, thanks for forking and sending back Pull Requests. Extensi
 // Copyright (c) 2018, The Xaria Developers
 // 
 // Please see the included LICENSE file for more information.
+```
 ```

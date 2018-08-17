@@ -2,6 +2,7 @@
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018, The TurtleCoin Developers
 // Copyright (c) 2018, The Xaria Developers
+//
 // Please see the included LICENSE file for more information.
 
 #include "Miner.h"
@@ -107,8 +108,7 @@ void Miner::workerFunc(const BlockTemplate& blockTemplate, Difficulty difficulty
       }
 
       incrementHashCount();
-	  block.nonce += nonceStep;
-	  
+      block.nonce += nonceStep;
     }
   } catch (std::exception& e) {
     m_logger(Logging::ERROR) << "Miner got error: " << e.what();
@@ -139,6 +139,7 @@ bool Miner::setStateBlockFound() {
     }
   }
 }
+
 void Miner::incrementHashCount() {
   std::lock_guard<std::mutex> guard(m_hashes_mutex);
   m_hash_count = m_hash_count++;

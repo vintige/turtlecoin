@@ -2,6 +2,7 @@
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018, The TurtleCoin Developers
 // Copyright (c) 2018, The Xaria Developers
+//
 // Please see the included LICENSE file for more information.
 
 #pragma once
@@ -33,7 +34,7 @@ public:
 
   BlockTemplate mine(const BlockMiningParameters& blockMiningParameters, size_t threadCount);
   uint64_t getHashCount();
-   
+
   //NOTE! this is blocking method
   void stop();
 
@@ -49,7 +50,7 @@ private:
   BlockTemplate m_block;
   uint64_t m_hash_count;
   std::mutex m_hashes_mutex;
-  
+
   Logging::LoggerRef m_logger;
 
   void runWorkers(BlockMiningParameters blockMiningParameters, size_t threadCount);

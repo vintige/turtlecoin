@@ -8,7 +8,7 @@ file(GLOB_RECURSE ConnectivityTool ConnectivityTool/*)
 file(GLOB_RECURSE Crypto crypto/*)
 file(GLOB_RECURSE CryptoNoteCore CryptoNoteCore/* CryptoNoteConfig.h)
 file(GLOB_RECURSE CryptoNoteProtocol CryptoNoteProtocol/*)
-file(GLOB_RECURSE xariad Daemon/*)
+file(GLOB_RECURSE Xariad Daemon/*)
 file(GLOB_RECURSE Http HTTP/*)
 file(GLOB_RECURSE Logging Logging/*)
 file(GLOB_RECURSE miner Miner/*)
@@ -21,9 +21,7 @@ file(GLOB_RECURSE Transfers Transfers/*)
 file(GLOB_RECURSE Wallet Wallet/*)
 file(GLOB_RECURSE WalletLegacy WalletLegacy/*)
 file(GLOB_RECURSE JsonRpcServer JsonRpcServer/*)
-file(GLOB_RECURSE PaymentGate PaymentGate/*)
-file(GLOB_RECURSE service PaymentGateService/*)
-file(GLOB_RECURSE poolwallet PoolWallet/*)
+file(GLOB_RECURSE service WalletService/*)
 file(GLOB_RECURSE zedwallet zedwallet/*)
 
 if(MSVC)
@@ -37,7 +35,7 @@ endif()
 # This appears to be an IDE thing, to group files together.
 # https://cmake.org/cmake/help/v3.0/command/source_group.html
 # Probably not what you need to be looking at if something isn't building
-source_group("" FILES $${Common} ${ConnectivityTool} ${Crypto} ${CryptoNoteCore} ${CryptoNoteProtocol} ${xariad} ${JsonRpcServer} ${Http} ${Logging} ${miner} ${Mnemonics} ${NodeRpcProxy} ${poolwallet} ${P2p} ${Rpc} ${Serialization} ${System} ${Transfers} ${Wallet} ${WalletLegacy} ${zedwallet})
+source_group("" FILES $${Common} ${ConnectivityTool} ${Crypto} ${CryptoNoteCore} ${CryptoNoteProtocol} ${Xariad} ${JsonRpcServer} ${Http} ${Logging} ${miner} ${Mnemonics} ${NodeRpcProxy} ${P2p} ${Rpc} ${Serialization} ${System} ${Transfers} ${Wallet} ${WalletLegacy} ${zedwallet})
 
 add_library(BlockchainExplorer ${BlockchainExplorer})
 add_library(Common ${Common})
@@ -53,8 +51,8 @@ add_library(Serialization ${Serialization})
 add_library(System ${System})
 add_library(Transfers ${Transfers})
 add_library(Wallet ${Wallet} ${WalletLegacy})
-add_library(PaymentGate ${PaymentGate})
 add_library(JsonRpcServer ${JsonRpcServer})
+add_library(WalletService ${service})
 
 if(MSVC)
   set(DAEMON_SOURCES_OS
@@ -62,9 +60,6 @@ if(MSVC)
   )
   set(ZED_WALLET_SOURCES_OS
     BinaryInfo/zedwallet.rc
-  )
-  set(POOLWALLET_SOURCES_OS
-    BinaryInfo/poolwallet.rc
   )
   set(MINER_SOURCES_OS
     BinaryInfo/miner.rc
@@ -74,15 +69,14 @@ if(MSVC)
   )
 endif()
 
-add_executable(xariad ${xariad} ${DAEMON_SOURCES_OS})
+add_executable(Xariad ${Xariad} ${DAEMON_SOURCES_OS})
 add_executable(zedwallet ${zedwallet} ${ZED_WALLET_SOURCES_OS})
 add_executable(service ${service} ${PG_SOURCES_OS})
-add_executable(poolwallet ${poolwallet} ${POOLWALLET_SOURCES_OS})
 add_executable(miner ${miner} ${MINER_SOURCES_OS})
 
 if(MSVC)
   target_link_libraries(System ws2_32)
-  target_link_libraries(xariad Rpcrt4)
+  target_link_libraries(Xariad Rpcrt4)
   target_link_libraries(service Rpcrt4)
 endif ()
 
@@ -91,34 +85,28 @@ target_link_libraries(CryptoNoteCore Common Logging Crypto P2P Rpc Http Serializ
 target_link_libraries(CryptoNoteCore Common Crypto Logging Serialization)
 target_link_libraries(P2P CryptoNoteCore Logging ${Boost_LIBRARIES} upnpc-static)
 target_link_libraries(Rpc CryptoNoteCore Logging P2P)
+target_link_libraries(WalletService Mnemonics)
 if(MSVC)
-	target_link_libraries(xariad P2P Rpc Serialization System Http Logging CryptoNoteCore Crypto Common rocksdb ${Boost_LIBRARIES} )
+	target_link_libraries(Xariad P2P Rpc Serialization System Http Logging CryptoNoteCore Crypto Common rocksdb ${Boost_LIBRARIES} )
 else()
-	target_link_libraries(xariad P2P Rpc Serialization System Http Logging CryptoNoteCore Crypto Common rocksdblib ${Boost_LIBRARIES} )
+	target_link_libraries(Xariad P2P Rpc Serialization System Http Logging CryptoNoteCore Crypto Common rocksdblib ${Boost_LIBRARIES} )
 endif()
-target_link_libraries(zedwallet Mnemonics Wallet NodeRpcProxy Transfers Rpc Http CryptoNoteCore System Logging Common ${Boost_LIBRARIES})
-target_link_libraries(PaymentGate Mnemonics)
-if(MSVC)
-	target_link_libraries(service PaymentGate JsonRpcServer Wallet NodeRpcProxy Transfers CryptoNoteCore Crypto Rpc Http System Logging Common ${Boost_LIBRARIES})
-else()
-	target_link_libraries(service PaymentGate JsonRpcServer Wallet NodeRpcProxy Transfers CryptoNoteCore Crypto Rpc Http System Logging Common ${Boost_LIBRARIES})
-endif()
-target_link_libraries(poolwallet Wallet NodeRpcProxy Transfers Rpc P2P upnpc-static Http Serialization CryptoNoteCore System Logging Common Crypto ${Boost_LIBRARIES})
+target_link_libraries(zedwallet Mnemonics Wallet NodeRpcProxy Transfers Rpc Http CryptoNoteCore System Logging Common ${Boost_LIBRARIES} ${Readline_LIBRARY})
+target_link_libraries(service WalletService JsonRpcServer Wallet NodeRpcProxy Transfers CryptoNoteCore Crypto Rpc Http System Logging Common ${Boost_LIBRARIES})
+target_link_libraries(Wallet NodeRpcProxy Transfers Rpc P2P upnpc-static Http Serialization CryptoNoteCore System Logging Common Crypto ${Boost_LIBRARIES})
 target_link_libraries(miner CryptoNoteCore Rpc Serialization System Http Logging Common Crypto ${Boost_LIBRARIES})
 
 # Add dependencies means we have to build the latter before we build the former
 # In this case it's because we need to have the current version name rather
 # than a cached one
 add_dependencies(Rpc version)
-add_dependencies(xariad version)
+add_dependencies(Xariad version)
 add_dependencies(zedwallet version)
 add_dependencies(service version)
-add_dependencies(poolwallet version)
 add_dependencies(P2P version)
 
 # Finally build the binaries
-set_property(TARGET xariad PROPERTY OUTPUT_NAME "xariad")
+set_property(TARGET Xariad PROPERTY OUTPUT_NAME "Xariad")
 set_property(TARGET zedwallet PROPERTY OUTPUT_NAME "zedwallet")
-set_property(TARGET service PROPERTY OUTPUT_NAME "service")
-set_property(TARGET poolwallet PROPERTY OUTPUT_NAME "poolwallet")
+set_property(TARGET service PROPERTY OUTPUT_NAME "xaria-service")
 set_property(TARGET miner PROPERTY OUTPUT_NAME "miner")
